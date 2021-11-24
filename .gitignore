@@ -1,0 +1,8 @@
+*.json
+*.log
+.idea
+target
+/nbproject/
+/target/
+/test/
+nb*.xml
