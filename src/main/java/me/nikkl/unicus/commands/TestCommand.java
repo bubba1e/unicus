@@ -20,6 +20,8 @@ package me.nikkl.unicus.commands;
 import me.nikkl.unicus.exceptions.ArgumentException;
 import me.nikkl.unicus.parsing.ArgumentCollection;
 import me.nikkl.unicus.parsing.ArgumentSlug;
+import me.nikkl.unicus.parsing.ExecutionContext;
+import me.nikkl.unicus.validator.Validator;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class TestCommand extends BaseCommand {
@@ -27,14 +29,19 @@ public class TestCommand extends BaseCommand {
 		this.name = "test";
 		this.description = "test command";
 		this.arguments = new ArgumentCollection(
-				new ArgumentSlug("Action"),
-				new ArgumentSlug("User", "Horr")
+				ArgumentSlug
+						.create("Member")
+						.validator(new Validator(Validator.MentionMember, "Invalid Member")),
+				ArgumentSlug
+						.create("Role")
+						.validator(new Validator(Validator.MentionRole, "Invalid Role"))
 		);
 	}
 
 	@Override
-	public void execute(ArgumentCollection args, MessageReceivedEvent event) {
-		System.out.println(args.getArg("Action"));
-		System.out.println(args.getArg("User"));
+	public void execute(ExecutionContext context) {
+		context.getArgMember("Member").getRoles().add(
+				context.getArgRole("Role")
+		);
 	}
 }

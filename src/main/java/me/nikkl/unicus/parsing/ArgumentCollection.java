@@ -20,7 +20,6 @@ package me.nikkl.unicus.parsing;
 import me.nikkl.unicus.exceptions.ArgumentException;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -54,7 +53,7 @@ public class ArgumentCollection {
 		return slugs;
 	}
 
-	public String getArg(String name) {
+	public String getArgString(String name) {
 		for (ArgumentSlug slug : slugs) {
 			if (slug.getName().equalsIgnoreCase(name)) {
 				return slug.getValue();

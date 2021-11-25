@@ -17,8 +17,8 @@
  */
 package me.nikkl.unicus.exceptions;
 
-public class InvalidCommandException extends Exception {
-	public InvalidCommandException(String message) {
+public class ValidationException extends Exception {
+	public ValidationException(String message) {
 		super(message);
 	}
 }

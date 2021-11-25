@@ -17,21 +17,32 @@
  */
 package me.nikkl.unicus.parsing;
 
+import me.nikkl.unicus.validator.Validator;
+
 import java.util.regex.Pattern;
 
 public class ArgumentSlug {
 	private String name;
 	private String defaultValue = null;
+	private Validator validator = null;
 	private String value = null;
-
-	public ArgumentSlug(String name, String defaultValue) {
-		this.name = name;
-		this.defaultValue = defaultValue;
-	}
 
 	public ArgumentSlug(String name) {
 		this.name = name;
-		this.defaultValue = null;
+	}
+
+	public static ArgumentSlug create(String name) {
+		return new ArgumentSlug(name);
+	}
+
+	public ArgumentSlug defaultValue(String defaultValue) {
+		this.defaultValue = defaultValue;
+		return this;
+	}
+
+	public ArgumentSlug validator(Validator validator) {
+		this.validator = validator;
+		return this;
 	}
 
 	public String getName() {
@@ -40,6 +51,10 @@ public class ArgumentSlug {
 
 	public String getDefaultValue() {
 		return defaultValue;
+	}
+
+	public Validator getValidator() {
+		return validator;
 	}
 
 	public String getValue() {
@@ -55,6 +70,10 @@ public class ArgumentSlug {
 
 	public void setDefaultValue(String defaultValue) {
 		this.defaultValue = defaultValue;
+	}
+
+	public void setValidator(Validator validator) {
+		this.validator = validator;
 	}
 
 	public void setValue(String value) {

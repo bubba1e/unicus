@@ -18,36 +18,38 @@
 package me.nikkl.unicus.listeners;
 
 import me.nikkl.unicus.Bot;
-import me.nikkl.unicus.Config;
-import me.nikkl.unicus.commands.BaseCommand;
-import me.nikkl.unicus.exceptions.InvalidCommandException;
-import me.nikkl.unicus.exceptions.InvalidFormatException;
-import me.nikkl.unicus.parsing.ArgumentCollection;
-import me.nikkl.unicus.parsing.ArgumentParser;
-import me.nikkl.unicus.parsing.MessageParser;
-import me.nikkl.unicus.parsing.ParsedMessage;
+import me.nikkl.unicus.exceptions.CommandNotFoundException;
+import me.nikkl.unicus.parsing.ExecutionContext;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class MessageListener extends ListenerAdapter {
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
-		if (event.getAuthor().getIdLong() == Bot.inst().getJDA().getSelfUser().getIdLong()) {
+		Bot bot = Bot.getInstance();
+
+		// ignore own messages
+		if (event.getAuthor().getIdLong() == bot.getJda().getSelfUser().getIdLong()) {
 			return;
 		}
 
-		if (!event.getMessage().getContentRaw().startsWith(Config.inst().getPrefix())) {
+		// ignore normal messages
+		if (!event.getMessage().getContentRaw().startsWith(bot.getPrefix())) {
 			return;
 		}
 
-		ParsedMessage parsed;
+		System.out.println("test");
+		// parse message
+		ExecutionContext context;
 		try {
-			parsed = MessageParser.parseEvent(Config.inst().getPrefix(), event);
-		} catch (InvalidFormatException | InvalidCommandException e) {
-			e.printStackTrace();
+			context = bot.getParser().parseMessage(event);
+		} catch (CommandNotFoundException e) {
 			return;
 		}
 
-		parsed.getCommand().execute(parsed.getArgs(), event);
+		// execute command
+		if (context != null) {
+			context.getCommand().execute(context);
+		}
 	}
 }

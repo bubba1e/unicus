@@ -18,7 +18,10 @@
 package me.nikkl.unicus.commands;
 
 import me.nikkl.unicus.exceptions.ArgumentException;
+import me.nikkl.unicus.exceptions.InvalidFormatException;
+import me.nikkl.unicus.exceptions.ValidationException;
 import me.nikkl.unicus.parsing.ArgumentCollection;
+import me.nikkl.unicus.parsing.ExecutionContext;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public abstract class BaseCommand {
@@ -44,5 +47,13 @@ public abstract class BaseCommand {
 		return arguments;
 	}
 
-	public abstract void execute(ArgumentCollection args, MessageReceivedEvent event);
+	public void handleValidationError(MessageReceivedEvent event, ValidationException error) {
+		event.getChannel().sendMessage(error.getMessage()).queue();
+	}
+
+	public void handleFormatError(MessageReceivedEvent event, InvalidFormatException error) {
+		event.getChannel().sendMessage(error.getMessage()).queue();
+	}
+
+	public abstract void execute(ExecutionContext context);
 }

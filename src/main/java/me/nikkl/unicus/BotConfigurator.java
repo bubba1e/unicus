@@ -24,19 +24,19 @@ import javax.security.auth.login.LoginException;
 
 public class BotConfigurator {
 	public JDABuilder builder;
+	public Bot bot;
 
-	public BotConfigurator(String token) throws LoginException {
+	public BotConfigurator(String prefix, String token) throws LoginException {
 		this.builder = JDABuilder.createDefault(token);
-		Bot.inst().setJDA(builder.build());
+		this.bot = new Bot(prefix);
 	}
 
 	public void addCommands(BaseCommand ...commands) {
-		Bot.inst().addCommands(commands);
+		bot.addCommands(commands);
 	}
 
 	public void start() throws LoginException {
-		Bot.inst().getJDA().addEventListener(
-				new MessageListener()
-		);
+		bot.setJda(builder.build());
+		bot.getJda().addEventListener(new MessageListener());
 	}
 }

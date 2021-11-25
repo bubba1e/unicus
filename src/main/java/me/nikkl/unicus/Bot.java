@@ -18,35 +18,53 @@
 package me.nikkl.unicus;
 
 import me.nikkl.unicus.commands.BaseCommand;
+import me.nikkl.unicus.parsing.MessageParser;
 import net.dv8tion.jda.api.JDA;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Bot {
-	private static final Bot _instance = new Bot();
-
 	private JDA jda;
+	private String prefix;
 	private final ArrayList<BaseCommand> commands;
+	private final MessageParser parser;
 
-	public Bot() {
-		this.commands = new ArrayList<BaseCommand>();
+	private static Bot _instance;
+
+	public Bot(String prefix) {
+		this.prefix = prefix;
+		this.commands = new ArrayList<>();
+		this.parser = new MessageParser(this);
+		Bot._instance = this;
 	}
 
-	public static Bot inst() {
-		return _instance;
+	public static Bot getInstance() {
+		return Bot._instance;
 	}
 
-	public JDA getJDA() {
+	public JDA getJda() {
 		return jda;
+	}
+
+	public String getPrefix() {
+		return prefix;
 	}
 
 	public ArrayList<BaseCommand> getCommands() {
 		return commands;
 	}
 
-	public void setJDA(JDA jda) {
+	public MessageParser getParser() {
+		return parser;
+	}
+
+	public void setJda(JDA jda) {
 		this.jda = jda;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
 	}
 
 	public void addCommands(BaseCommand ...commands) {

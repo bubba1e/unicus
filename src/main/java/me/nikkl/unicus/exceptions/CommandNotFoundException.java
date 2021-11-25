@@ -13,26 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * This file was created on 25.11.2021 at 19:11.
+ * This file was created on 24.11.2021 at 21:24.
  */
-package me.nikkl.unicus.parsing;
+package me.nikkl.unicus.exceptions;
 
-import me.nikkl.unicus.commands.BaseCommand;
-
-public class ParsedMessage {
-	private final BaseCommand command;
-	private final ArgumentCollection args;
-
-	public ParsedMessage(BaseCommand command, ArgumentCollection args) {
-  		this.command = command;
-  		this.args = args;
-	}
-
-	public BaseCommand getCommand() {
-		return command;
-	}
-
-	public ArgumentCollection getArgs() {
-		return args;
+public class CommandNotFoundException extends Exception {
+	public CommandNotFoundException(String message) {
+		super(message);
 	}
 }
