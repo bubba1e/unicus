@@ -68,7 +68,7 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Project 📙 
 
 _Coming soon_
 
@@ -78,8 +78,8 @@ _Coming soon_
 * [Lavaplayer](https://github.com/sedmelluq/lavaplayer)
 
 
-<!-- GETTING STARTED -->
-## Getting Started
+<!-- GETTING STARTED --> 
+## Getting Started ⭐ 
 
 _Coming soon_
 
@@ -92,21 +92,21 @@ _Coming soon_
 _Coming soon_
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Usage ✨ 
 
 _Coming soon_
 
 
 
 <!-- ROADMAP -->
-## Roadmap
+## Roadmap 📜 
 
 See the [open issues](https://github.com/bubba1e/unicus/issues) for a list of proposed features (and known issues).
 
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+## Contributing 👥 
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -119,14 +119,14 @@ Contributions are what make the open source community such an amazing place to b
 
 
 <!-- LICENSE -->
-## License
+## License 📄 
 
 Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 
 
 
 <!-- CONTACT -->
-## Contact
+## Contact 👤 
 
 Bubbale - [@bubba1e](https://twitter.com/bubba1e) - main@nikkl.me
 
