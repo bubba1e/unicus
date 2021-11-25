@@ -1,6 +1,6 @@
 <p align="center">
   <em>
-    This Project is still in very early development and shouldn't be used in production.
+    🛠️ This Project is still in very early development and shouldn't be used in production. 🛠️
   </em>
 </p>
 
@@ -31,7 +31,7 @@
   </a>
 
   <p align="center">
-    An awesome framework to build advanced Discord bots!<br />
+    ⚡ An awesome framework for even more awesome Discord bots! ⚡<br />
     <br />
     <a href="https://github.com/bubba1e/unicus/"><strong>Explore the docs »</strong></a>
     <br />
