@@ -13,36 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * This file was created on 24.11.2021 at 22:22.
+ * This file was created on 25.11.2021 at 19:14.
  */
 package me.nikkl.unicus.commands;
 
 import me.nikkl.unicus.exceptions.ArgumentException;
 import me.nikkl.unicus.parsing.ArgumentCollection;
+import me.nikkl.unicus.parsing.ArgumentSlug;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-public abstract class BaseCommand {
-	protected String name;
-	protected String description;
-	protected ArgumentCollection arguments;
-
-	public BaseCommand() throws ArgumentException {
-		this.name = null;
-		this.description = null;
-		this.arguments = null;
+public class TestCommand extends BaseCommand {
+	public TestCommand() throws ArgumentException {
+		this.name = "test";
+		this.description = "test command";
+		this.arguments = new ArgumentCollection(
+				new ArgumentSlug("Action"),
+				new ArgumentSlug("User", "Horr")
+		);
 	}
 
-	public String getName() {
-		return name;
+	@Override
+	public void execute(ArgumentCollection args, MessageReceivedEvent event) {
+		System.out.println(args.getArg("Action"));
+		System.out.println(args.getArg("User"));
 	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public ArgumentCollection getArgumentCollection() {
-		return arguments;
-	}
-
-	public abstract void execute(ArgumentCollection args, MessageReceivedEvent event);
 }

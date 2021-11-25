@@ -17,20 +17,25 @@
  */
 package me.nikkl.unicus;
 
+import me.nikkl.unicus.commands.TestCommand;
+import me.nikkl.unicus.exceptions.ArgumentException;
+import me.nikkl.unicus.parsing.ArgumentCollection;
+import me.nikkl.unicus.parsing.ArgumentSlug;
 import net.dv8tion.jda.api.OnlineStatus;
-import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
 
 public class Unicus {
-	public static void main(String[] args) throws LoginException {
+	public static void main(String[] args) throws LoginException, ArgumentException {
 		BotConfigurator configurator = new BotConfigurator(Config.inst().getToken());
 
 		configurator.builder.setEnableShutdownHook(true);
 		configurator.builder.disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE);
 		configurator.builder.setBulkDeleteSplittingEnabled(false);
 		configurator.builder.setStatus(OnlineStatus.DO_NOT_DISTURB);
+
+		configurator.addCommands(new TestCommand());
 
 		configurator.start();
 	}

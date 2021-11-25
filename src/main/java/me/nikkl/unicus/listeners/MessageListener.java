@@ -20,9 +20,12 @@ package me.nikkl.unicus.listeners;
 import me.nikkl.unicus.Bot;
 import me.nikkl.unicus.Config;
 import me.nikkl.unicus.commands.BaseCommand;
-import me.nikkl.unicus.events.CommandEvent;
-import me.nikkl.unicus.utils.ArgumentList;
-import me.nikkl.unicus.utils.MessageHandler;
+import me.nikkl.unicus.exceptions.InvalidCommandException;
+import me.nikkl.unicus.exceptions.InvalidFormatException;
+import me.nikkl.unicus.parsing.ArgumentCollection;
+import me.nikkl.unicus.parsing.ArgumentParser;
+import me.nikkl.unicus.parsing.MessageParser;
+import me.nikkl.unicus.parsing.ParsedMessage;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -37,10 +40,14 @@ public class MessageListener extends ListenerAdapter {
 			return;
 		}
 
+		ParsedMessage parsed;
 		try {
-			new MessageHandler(event).start();
-		} catch (Exception e) {
-			event.getChannel().sendMessage("Es ist ein unbekannter Fehler aufgetreten.").queue();
+			parsed = MessageParser.parseEvent(Config.inst().getPrefix(), event);
+		} catch (InvalidFormatException | InvalidCommandException e) {
+			e.printStackTrace();
+			return;
 		}
+
+		parsed.getCommand().execute(parsed.getArgs(), event);
 	}
 }
