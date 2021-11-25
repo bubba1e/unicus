@@ -1,8 +1,27 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+<p align="center">
+  <em>
+    This Project is still in very early development and shouldn't be used in production.
+  </em>
+</p>
+
+<p align="center">
+  <a href="https://github.com/bubba1e/unicus/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/bubba1e/unicus.svg?style=for-the-badge" alt="contributors"/>
+  </a>
+  <a href="https://github.com/bubba1e/unicus/network/members">
+    <img src="https://img.shields.io/github/forks/bubba1e/unicus.svg?style=for-the-badge" alt="forks"/>
+  </a>
+  <a href="https://github.com/bubba1e/unicus/stargazers">
+    <img src="https://img.shields.io/github/stars/bubba1e/unicus.svg?style=for-the-badge" alt="stars"/>
+  </a>
+  <a href="https://github.com/bubba1e/unicus/issues">
+    <img src="https://img.shields.io/github/issues/bubba1e/unicus.svg?style=for-the-badge" alt="issues"/>
+  </a>
+  <a href="https://github.com/bubba1e/unicus/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/bubba1e/unicus.svg?style=for-the-badge" alt="license"/>
+  </a>
+</p>
+<hr />
 
 <!-- PROJECT LOGO -->
 <br />
@@ -12,7 +31,7 @@
   </a>
 
   <p align="center">
-    An awesome framework to build advanced Discord bots!
+    An awesome framework to build advanced Discord bots!<br />
     <br />
     <a href="https://github.com/bubba1e/unicus/"><strong>Explore the docs »</strong></a>
     <br />
@@ -124,4 +143,4 @@ Project Link: [https://github.com/bubba1e/unicus/](https://github.com/bubba1e/un
 [issues-shield]: https://img.shields.io/github/issues/bubba1e/unicus.svg?style=for-the-badge
 [issues-url]: https://github.com/bubba1e/unicus/issues
 [license-shield]: https://img.shields.io/github/license/bubba1e/unicus.svg?style=for-the-badge
-[license-url]: https://github.com/bubba1e/unicus/blob/master/LICENSE.txt
+[license-url]: https://github.com/bubba1e/unicus/blob/master/LICENSE
